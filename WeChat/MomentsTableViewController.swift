@@ -14,7 +14,10 @@ class MomentsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tweets = MockData.mockData()
+        MockData.fetchData({ (tweets) in
+            self.tweets = tweets?.tweets
+            self.tableView.reloadData()
+        })
     }
 
     // MARK: - Table view data source

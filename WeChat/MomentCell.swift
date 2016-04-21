@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MomentCell: UITableViewCell {
     
@@ -20,8 +21,10 @@ class MomentCell: UITableViewCell {
     @IBOutlet var images: [UIImageView]!
     
     func bindData(tweet : Tweet) {
-        avatar.image = UIImage(named: tweet.sender.avatar)
-        tweetUserName.text = tweet.sender.username
+        if let avatarURL = tweet.sender?.avatar, url = NSURL(string: avatarURL) {
+            avatar.kf_setImageWithURL(url)
+        }
+        tweetUserName.text = tweet.sender?.username
         tweetContent.text = tweet.content
         
         images.forEach {
@@ -34,11 +37,13 @@ class MomentCell: UITableViewCell {
         }
         
         for i in 0..<imgArr.count {
-            images[i].image = UIImage(named: imgArr[i])
-            images[i].hidden = false
+            if let url = NSURL(string: imgArr[i]) {
+                images[i].kf_setImageWithURL(url)
+                images[i].hidden = false
+            }
         }
         
-        commentUser.text = tweet.comments?.first?.sender.username
+        commentUser.text = tweet.comments?.first?.sender?.username
         comment.text = tweet.comments?.first?.content
     }
     

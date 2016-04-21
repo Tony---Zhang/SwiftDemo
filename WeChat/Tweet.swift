@@ -6,21 +6,57 @@
 //  Copyright © 2016 Lei Huang. All rights reserved.
 //
 
-struct Tweet {
-    let content: String?
-    let images: [String]?
-    let sender: User
-    let comments: [Comment]?
+import ObjectMapper
+
+struct Tweets : Mappable {
+    var tweets: [Tweet]?
+    
+    init?(_ map: Map) {}
+    
+    mutating func mapping(map: Map) {
+        tweets      <- map["tweets"]
+    }
 }
 
-struct Comment {
-    let content: String
-    let sender: User
+struct Tweet : Mappable {
+    var content: String?
+    var images: [String]?
+    var sender: User?
+    var comments: [Comment]?
+    
+    init?(_ map: Map) {}
+    
+    mutating func mapping(map: Map) {
+        content     <- map["content"]
+        images      <- map["images"]
+        sender      <- map["sender"]
+        comments    <- map["comments"]
+    }
 }
 
-struct User {
-    let username: String
-    let nick: String
-    let avatar: String
+struct Comment : Mappable {
+    var content: String?
+    var sender: User?
+    
+    init?(_ map: Map) {}
+    
+    mutating func mapping(map: Map) {
+        content     <- map["content"]
+        sender      <- map["sender"]
+    }
+}
+
+struct User : Mappable {
+    var username: String?
+    var nick: String?
+    var avatar: String?
+    
+    init?(_ map: Map) {}
+    
+    mutating func mapping(map: Map) {
+        username    <- map["username"]
+        nick        <- map["nick"]
+        avatar      <- map["avatar"]
+    }
 }
 
