@@ -13,6 +13,10 @@
 		1012B4D21CC78B3A00CD6A15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1012B4D01CC78B3A00CD6A15 /* Main.storyboard */; };
 		1012B4D41CC78B3A00CD6A15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1012B4D31CC78B3A00CD6A15 /* Assets.xcassets */; };
 		1012B4D71CC78B3A00CD6A15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1012B4D51CC78B3A00CD6A15 /* LaunchScreen.storyboard */; };
+		1012B4DF1CC7900D00CD6A15 /* MomentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012B4DE1CC7900D00CD6A15 /* MomentsTableViewController.swift */; };
+		1012B4E91CC7919600CD6A15 /* MomentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012B4E71CC7919600CD6A15 /* MomentCell.swift */; };
+		1012B4EA1CC7919600CD6A15 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012B4E81CC7919600CD6A15 /* Tweet.swift */; };
+		1012B4EC1CC791CE00CD6A15 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1012B4EB1CC791CE00CD6A15 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		1012B4D31CC78B3A00CD6A15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1012B4D61CC78B3A00CD6A15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1012B4D81CC78B3A00CD6A15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1012B4DE1CC7900D00CD6A15 /* MomentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentsTableViewController.swift; sourceTree = "<group>"; };
+		1012B4E71CC7919600CD6A15 /* MomentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentCell.swift; sourceTree = "<group>"; };
+		1012B4E81CC7919600CD6A15 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		1012B4EB1CC791CE00CD6A15 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 		1012B4C91CC78B3A00CD6A15 /* WeChat */ = {
 			isa = PBXGroup;
 			children = (
+				1012B4EE1CC7946400CD6A15 /* Moment */,
 				1012B4CA1CC78B3A00CD6A15 /* AppDelegate.swift */,
 				1012B4CC1CC78B3A00CD6A15 /* FirstViewController.swift */,
 				1012B4CE1CC78B3A00CD6A15 /* SecondViewController.swift */,
@@ -65,6 +74,41 @@
 				1012B4D81CC78B3A00CD6A15 /* Info.plist */,
 			);
 			path = WeChat;
+			sourceTree = "<group>";
+		};
+		1012B4E01CC7912000CD6A15 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1012B4EB1CC791CE00CD6A15 /* MockData.swift */,
+				1012B4E81CC7919600CD6A15 /* Tweet.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1012B4E11CC7912700CD6A15 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1012B4E71CC7919600CD6A15 /* MomentCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1012B4E21CC7912C00CD6A15 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1012B4DE1CC7900D00CD6A15 /* MomentsTableViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1012B4EE1CC7946400CD6A15 /* Moment */ = {
+			isa = PBXGroup;
+			children = (
+				1012B4E21CC7912C00CD6A15 /* Controller */,
+				1012B4E11CC7912700CD6A15 /* View */,
+				1012B4E01CC7912000CD6A15 /* Model */,
+			);
+			name = Moment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +184,11 @@
 			files = (
 				1012B4CF1CC78B3A00CD6A15 /* SecondViewController.swift in Sources */,
 				1012B4CB1CC78B3A00CD6A15 /* AppDelegate.swift in Sources */,
+				1012B4DF1CC7900D00CD6A15 /* MomentsTableViewController.swift in Sources */,
+				1012B4EA1CC7919600CD6A15 /* Tweet.swift in Sources */,
 				1012B4CD1CC78B3A00CD6A15 /* FirstViewController.swift in Sources */,
+				1012B4EC1CC791CE00CD6A15 /* MockData.swift in Sources */,
+				1012B4E91CC7919600CD6A15 /* MomentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +338,7 @@
 				1012B4DD1CC78B3A00CD6A15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
