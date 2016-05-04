@@ -50,6 +50,7 @@ struct User : Mappable {
     var username: String?
     var nick: String?
     var avatar: String?
+    var background: String?
     
     init?(_ map: Map) {}
     
@@ -57,6 +58,7 @@ struct User : Mappable {
         username    <- map["username"]
         nick        <- map["nick"]
         avatar      <- map["avatar"]
+        background  <- map["background"]
     }
 }
 

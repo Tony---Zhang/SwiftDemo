@@ -10,25 +10,40 @@ import Alamofire
 import ObjectMapper
 
 struct MockData {
-//    static func mockData() -> [Tweet] {
-//        let mrSong = User(username:"宋仲基", nick: "", avatar: "MrSong")
-//        let comments = [Comment(content: "This is comment", sender: mrSong)]
-//        let t1 = Tweet(content: "Nice to meet you", images: ["pic1", "pic2", "pic3"], sender: mrSong, comments: comments)
-//
-//        return [t1, t1, t1]
-//    }
+    
+    class Config {
+        static let server: String = "http://127.0.0.1:4000/"
+        static let tweet: String = "tweets"
+        static let profile: String = "profile"
+        
+        static func tweetUrl() -> String {
+            return server + tweet
+        }
+        
+        static func profileUrl() -> String {
+            return server + profile
+        }
+    }
     
     static func fetchData(completionHandler:Tweets? -> Void) {
+        fetch(Config.tweetUrl(), completionHandler: completionHandler)
+    }
+    
+    static func fetchProfile(completionHandler:User? -> Void) {
+        fetch(Config.profileUrl(), completionHandler: completionHandler)
+    }
+    
+    private static func fetch<T: Mappable>(url: String, completionHandler:T? -> Void) {
         Alamofire.request(
-            .GET, "http://127.0.0.1:4000/tweets")
+            .GET, url)
             .responseString {
                 if let json = $0.result.value {
-                    let tweets = Mapper<Tweets>().map(json);
-                    completionHandler(tweets)
+                    let data = Mapper<T>().map(json)
+                    completionHandler(data)
                 } else {
                     completionHandler(nil)
                 }
-            }
+        }
     }
     
 }

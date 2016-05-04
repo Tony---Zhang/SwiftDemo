@@ -9,6 +9,8 @@
 import UIKit
 
 class MomentsTableViewController: UITableViewController {
+    
+    @IBOutlet weak var header: HeaderCell!
   
     var tweets: [Tweet]?
 
@@ -18,6 +20,9 @@ class MomentsTableViewController: UITableViewController {
             self.tweets = tweets?.tweets
             self.tableView.reloadData()
         })
+        MockData.fetchProfile {
+            self.header.bind($0)
+        }
     }
 
     // MARK: - Table view data source
