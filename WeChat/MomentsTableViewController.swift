@@ -16,6 +16,7 @@ class MomentsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableView()
         MockData.fetchData({ (tweets) in
             self.tweets = tweets?.tweets
             self.tableView.reloadData()
@@ -41,6 +42,11 @@ class MomentsTableViewController: UITableViewController {
             cell.bindData(tweets[indexPath.row])
         }
         return cell
+    }
+    
+    func configureTableView() {
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 206
     }
 
 }
